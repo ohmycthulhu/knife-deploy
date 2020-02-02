@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  api:
+    image: ohmycthulhu/knife_api:1.2
+    environment:
+      - DB_USER=knife_user
+      - DB_PASSWORD=k1@i3fe(_u3s1e9r
+      - DB_HOST=192.168.2.222
+      - DB_CONNECTION=mysql
+      - DB_DATABASE=knife
+      - HOST=0.0.0.0
+    networks:
+      - default
+  socket:
+    image: ohmycthulhu/knife_socket:1.4
+    environment:
+      - API_URL=http://api:3333
+    networks:
+      - default
+    ports:
+      - "5000:3000"
+
+networks:
+  default:
