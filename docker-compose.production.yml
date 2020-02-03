@@ -13,7 +13,7 @@ services:
     networks:
       - default
   socket:
-    image: ohmycthulhu/knife_socket:1.4
+    image: ohmycthulhu/knife_socket:2
     environment:
       - API_URL=http://api:3333
       - PORT=3000
