@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   api:
-    image: ohmycthulhu/knife_api:1.4
+    image: ohmycthulhu/knife_api:1.4.1
     environment:
       - DB_USER=knifeuser
       - DB_PASSWORD=6}aQ^P)w!;
@@ -13,7 +13,7 @@ services:
     networks:
       - default
   socket:
-    image: ohmycthulhu/knife_socket:2.6.1
+    image: ohmycthulhu/knife_socket:2.6.2
     environment:
       - API_URL=http://api:3333
       - PORT=3000
