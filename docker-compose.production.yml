@@ -8,7 +8,7 @@ services:
       - DB_PASSWORD=5lynlzv9ply2
       - DB_HOST=192.168.12.8
       - DB_CONNECTION=mysql
-      - DB_DATABASE=knife
+      - DB_DATABASE=simtoday
       - HOST=0.0.0.0
       - MINIMAL_TRIES=-10000
     networks:
