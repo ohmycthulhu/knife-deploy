@@ -17,13 +17,13 @@ services:
     image: ohmycthulhu/knife_socket:2.8
     environment:
       - API_URL=http://localhost:8000
-      - PORT=3000
+      - PORT=3001
       - TYPE=en
       - MINIMAL_TRIES=0
     networks:
       - default
     ports:
-      - "5000:3000"
+      - "5000:3001"
   duck:
     image: ohmycthulhu/duckhit:2.2
     ports:
