@@ -4,7 +4,7 @@ services:
   api:
     image: ohmycthulhu/game_api:1.0.0
     environment:
-      - DB_USER=qarishiqsozapp
+      - DB_USERNAME=qarishiqsozapp
       - DB_PASSWORD=5lynlzv9ply2
       - DB_HOST=192.168.12.8
       - DB_CONNECTION=mysql
@@ -14,9 +14,9 @@ services:
     networks:
       - default
   knife:
-    image: ohmycthulhu/knife_socket:2.8
+    image: ohmycthulhu/knife_socket:2.8.1
     environment:
-      - API_URL=http://localhost:8000
+      - API_URL=http://api
       - PORT=3001
       - TYPE=en
       - MINIMAL_TRIES=0
@@ -29,7 +29,7 @@ services:
     ports:
       - "6000:3000"
     environment:
-      - SERVER_URL=http://localhost:8000
+      - SERVER_URL=http://api
     networks:
       - default
 
