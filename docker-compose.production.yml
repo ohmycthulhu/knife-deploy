@@ -14,7 +14,7 @@ services:
     networks:
       - default
   knife:
-    image: ohmycthulhu/knife_socket:2.9.2
+    image: ohmycthulhu/knife_socket:2.9.5
     environment:
       - API_URL=http://api
       - PORT=3001
@@ -25,7 +25,7 @@ services:
     ports:
       - "5000:3001"
   duck:
-    image: ohmycthulhu/duckhit:2.2
+    image: ohmycthulhu/duckhit:2.4.1
     ports:
       - "6000:3000"
     environment:
