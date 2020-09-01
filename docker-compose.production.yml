@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   api:
-    image: ohmycthulhu/game_api:1.1.2
+    image: ohmycthulhu/game_api:1.1.3
     environment:
       - DB_USERNAME=qarishiqsozapp
       - DB_PASSWORD=5lynlzv9ply2
@@ -14,7 +14,7 @@ services:
     networks:
       - default
   knife:
-    image: ohmycthulhu/knife_socket:2.9.6
+    image: ohmycthulhu/knife_socket:2.9.7
     environment:
       - API_URL=http://api
       - PORT=3001
@@ -25,7 +25,7 @@ services:
     ports:
       - "5000:3001"
   duck:
-    image: ohmycthulhu/duckhit:2.4.3
+    image: ohmycthulhu/duckhit:2.4.4
     ports:
       - "6000:3000"
     environment:
