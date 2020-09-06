@@ -6,7 +6,7 @@ jobs:
     steps:
       - run:
           name: Deploy Over SSH
-          command: ssh $SSH_USER@$SSH_HOST "touch /home/circle.ci"
+          command: ssh $SSH_USER@$SSH_HOST "touch /home/circle.ci ; exit;"
             # ssh $SSH_USER@$SSH_HOST "cd /home/games/deploy && git pull && docker stack deploy games -c docker-compose.production.yml"
 
 workflows:
