@@ -14,7 +14,7 @@ services:
     networks:
       - default
   knife:
-    image: ohmycthulhu/knife_socket:2.11.4
+    image: ohmycthulhu/knife_socket:2.11.5
     environment:
       - API_URL=http://api
       - PORT=3001
