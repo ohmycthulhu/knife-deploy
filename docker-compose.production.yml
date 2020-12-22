@@ -25,7 +25,7 @@ services:
     ports:
       - "5000:3001"
   duck:
-    image: ohmycthulhu/duckhit:2.6.5
+    image: ohmycthulhu/duckhit:2.6.6
     ports:
       - "6000:3000"
     environment:
