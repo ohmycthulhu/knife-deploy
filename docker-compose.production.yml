@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   api:
-    image: ohmycthulhu/game_api:1.1.10
+    image: ohmycthulhu/game_api:1.1.11
     environment:
       - DB_USERNAME=qarishiqsozapp
       - DB_PASSWORD=5lynlzv9ply2
