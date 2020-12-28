@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   api:
-    image: ohmycthulhu/game_api:1.1.12
+    image: ohmycthulhu/game_api:1.1.13
     environment:
       - DB_USERNAME=qarishiqsozapp
       - DB_PASSWORD=5lynlzv9ply2
@@ -11,10 +11,11 @@ services:
       - DB_DATABASE=simtoday
       - HOST=0.0.0.0
       - MINIMAL_TRIES=-10000
+      - EXCLUDED_TOKENS=022d94208613ec2ba34a765c5c05eccd,71a54068c2a3eeaf4f7a19f4a1571a79
     networks:
       - default
   knife:
-    image: ohmycthulhu/knife_socket:2.11.6
+    image: ohmycthulhu/knife_socket:2.11.7
     environment:
       - API_URL=http://api
       - PORT=3001
@@ -25,7 +26,7 @@ services:
     ports:
       - "5000:3001"
   duck:
-    image: ohmycthulhu/duckhit:2.6.7
+    image: ohmycthulhu/duckhit:2.6.8
     ports:
       - "6000:3000"
     environment:
