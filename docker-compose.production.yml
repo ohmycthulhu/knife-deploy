@@ -10,7 +10,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   api:
-    image: ohmycthulhu/game_api:1.1.16
+    image: ohmycthulhu/game_api:1.2.0
     environment:
       - DB_USERNAME=qarishiqsozapp
       - DB_PASSWORD=5lynlzv9ply2
@@ -23,7 +23,7 @@ services:
     networks:
       - default
   knife:
-    image: ohmycthulhu/knife_socket:2.14.3
+    image: ohmycthulhu/knife_socket:2.14.4
     environment:
       - API_URL=http://api
       - PORT=3001
@@ -40,7 +40,7 @@ services:
     deploy:
       replicas: 3
   duck:
-    image: ohmycthulhu/duckhit:2.7.4
+    image: ohmycthulhu/duckhit:2.7.5
     environment:
       - SERVER_URL=http://api
       - SESSION_DRIVER=local
@@ -52,6 +52,8 @@ services:
       - traefik.http.services.duck.loadBalancer.sticky.cookie.name=server_id
       - traefik.http.services.duck.loadBalancer.sticky.cookie.httpOnly=true
       - traefik.http.services.duck.loadbalancer.sticky.cookie=true
+    deploy:
+      replicas: 3
 
 networks:
   default:
