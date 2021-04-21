@@ -5,18 +5,18 @@ services:
     image: traefik:v2.4
     command: --api.insecure=true --providers.docker
     ports:
-      - "800:80"
+      - "80:80"
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   api:
     image: ohmycthulhu/game_api:1.1.16
     environment:
-      - DB_USERNAME=qarishiqsozapp
-      - DB_PASSWORD=5lynlzv9ply2
-      - DB_HOST=192.168.12.8
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_HOST=192.168.1.128
       - DB_CONNECTION=mysql
-      - DB_DATABASE=simtoday
+      - DB_DATABASE=games
       - HOST=0.0.0.0
       - MINIMAL_TRIES=-10000
       - EXCLUDED_TOKENS=022d94208613ec2ba34a765c5c05eccd,71a54068c2a3eeaf4f7a19f4a1571a79
@@ -29,10 +29,11 @@ services:
       - PORT=3001
       - TYPE=en
       - MINIMAL_TRIES=0
+      - SESSION_DRIVER=local
     networks:
       - default
     labels:
-      - traefik.http.routers.knife.rule=Host(`knife-hit.com`)
+      - traefik.http.routers.knife.rule=Host(`127.0.0.1`)
       - traefik.http.services.knife.loadbalancer.server.port=3001
       - traefik.http.services.knife.loadBalancer.sticky.cookie.name=server_id
       - traefik.http.services.knife.loadBalancer.sticky.cookie.httpOnly=true
@@ -49,9 +50,10 @@ services:
     labels:
       - traefik.http.routers.duck.rule=Host(`duckhit.com`)
       - traefik.http.services.duck.loadbalancer.server.port=3000
-      - traefik.http.services.duck.loadBalancer.sticky.cookie.name=server_id
-      - traefik.http.services.duck.loadBalancer.sticky.cookie.httpOnly=true
       - traefik.http.services.duck.loadbalancer.sticky.cookie=true
+      - traefik.http.services.duck.loadbalancer.sticky.cookie.name=io
+    deploy:
+      replicas: 1
 
 networks:
   default:

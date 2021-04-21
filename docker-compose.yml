@@ -14,14 +14,26 @@ services:
     networks:
       - default
   socket:
-    build: ../socket/.
+    build: ../knife/.
     environment:
-      - API_URL=http://api:3333
-      - MINIMAL_TRIES=-100
+      - API_URL=http://api
+      - PORT=3000
+      - TYPE=en
+      - MINIMAL_TRIES=0
+      - SESSION_DRIVER=redis
+      - SESSION_SECRET=some_secret
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     networks:
       - default
+    deploy:
+      replicas: 2
     ports:
       - "3210:3000"
+  redis:
+    image: redis:6.2
+    networks:
+      - default
 
 networks:
   default:
