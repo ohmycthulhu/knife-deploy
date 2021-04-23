@@ -10,7 +10,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   api:
-    image: ohmycthulhu/game_api:1.2.1
+    image: ohmycthulhu/game_api:1.2.2
     environment:
       - DB_USERNAME=qarishiqsozapp
       - DB_PASSWORD=5lynlzv9ply2
