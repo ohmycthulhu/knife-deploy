@@ -40,7 +40,7 @@ services:
     deploy:
       replicas: 5
   duck:
-    image: ohmycthulhu/duckhit:2.7.6
+    image: ohmycthulhu/duckhit:2.7.7
     environment:
       - SERVER_URL=http://api
       - SESSION_DRIVER=local
